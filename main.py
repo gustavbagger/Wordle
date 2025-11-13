@@ -1,3 +1,3 @@
 from helpers.RemoveNames import RemoveNames
 
-RemoveNames("./six_letter_words.txt")
+RemoveNames("./dictionaries/five_letter_words.txt")
