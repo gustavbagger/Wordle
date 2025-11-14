@@ -9,7 +9,7 @@ from helpers.positional_hints import hints
 
 from helpers.generate_instance import simple_encr_decr, game_key
 
-#test with ./dictionaries/five_letter_words.txt
+#test with ./dictionaries/valid_wordle_words.txt
 
 def wordle():
     print("\n======================================================================")
@@ -62,6 +62,7 @@ def wordle():
     correct_letters = list()
     guesses = list()
     solution_check = [2]*len(solution)
+
     #Game loop
     while True:
         print("----------------------------------------------------------------------")
@@ -74,12 +75,18 @@ def wordle():
             print(f"{" ".join(map(str,guess[1]))}")  
         print("----------------------------------------------------------------------")
         guess_word = input("what word would you like to try?\n")
+
+        if guess_word == "End":
+            wonQ = False
+            break
+            
         if not words_trie.exists(guess_word):
             print("\nInvalid word\n")
             continue
 
         guess_hints = hints(guess_word,solution)
         if guess_hints == solution_check:
+            wonQ = True
             break
 
         guesses.append((guess_word,guess_hints))
@@ -90,8 +97,18 @@ def wordle():
                 unused_letters.remove(letter)
             if guess_hints[i]>0 and letter not in correct_letters:
                 correct_letters.append(letter)
-    print("\n======================================================================")
-    print(f"Correct! The solution was indeed {solution}")
-    print(f"If you want to challange someone else, send them the key: {key}")
-    print("======================================================================")
+    if wonQ:
+        print("\n======================================================================")
+        print(f"Correct! The solution was indeed {solution}")
+        print(f"If you want to challange someone, send them this key: {key}")
+        print("======================================================================")
+    else:
+        print("\n======================================================================")
+
+        if input("Do you want the solution? (y/n)\n") == "y":
+            print(f"The solution was '{solution}'")
+            print(f"If you want to challange someone, send them this key: {key}")
+        else:
+            print(f"If you want to challange someone or try again, use key: {key}")
+        print("======================================================================")
 wordle()

@@ -1,1 +1,1 @@
-python3 wordle.py ./dictionaries/five_letter_words.txt
+python3 wordle.py ./dictionaries/valid_wordle_words.txt
