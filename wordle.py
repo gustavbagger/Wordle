@@ -74,7 +74,12 @@ def wordle():
             guess = guesses[i]
             print(f"({i+1}) {" ".join(list(guess[0]))}")
             print(f"    {" ".join(map(str,guess[1]))}")  
+        
+        if len(guesses) != 0 and guesses[-1][1] == solution_check:
+            wonQ = True
+            break
         print("----------------------------------------------------------------------")
+
         guess_word = input("what word would you like to try?\n")
 
         if guess_word == "End":
@@ -86,9 +91,6 @@ def wordle():
             continue
 
         guess_hints = hints(guess_word,solution)
-        if guess_hints == solution_check:
-            wonQ = True
-            break
 
         guesses.append((guess_word,guess_hints))
 
@@ -100,7 +102,7 @@ def wordle():
                 correct_letters.append(letter)
     if wonQ:
         print("\n======================================================================")
-        print(f"Correct! The solution was indeed {solution}")
+        print(f"Correct! The solution was indeed '{solution}'")
         print(f"If you want to challange someone, send them this key: {key}")
         print("======================================================================")
     else:
