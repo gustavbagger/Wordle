@@ -114,6 +114,6 @@ def wordle():
         else:
             print(f"If you want to challange someone or try again, use key: {key}")
         print("======================================================================")
-
+    input("")
 
 wordle()
