@@ -1,0 +1,1 @@
+python3 wordle.py ./dictionaries/five_letter_words.txt

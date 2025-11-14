@@ -16,6 +16,8 @@ class Trie:
                 current[letter] = {}
             current = current[letter]
         current[self.end_symbol] = True
+        self.size += 1
+        self.data.append(word)
 
     def add_list(self, wordlist: list):
         for word in wordlist:
@@ -29,6 +31,8 @@ class Trie:
     def __init__(self):
         self.root = {}
         self.end_symbol = "*"
+        self.size = 0
+        self.data = list()
     
     def __repr__(self):
         return json.dumps(self.root, sort_keys = True,indent = 2)

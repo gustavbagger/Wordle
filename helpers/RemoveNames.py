@@ -1,4 +1,4 @@
-def RemoveNames(filepath):
+def RemoveNames(filepath: str):
     file = open(filepath,"r")
     file_string = file.read()
     words = file_string.split("\n")

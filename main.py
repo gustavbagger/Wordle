@@ -2,9 +2,8 @@ from helpers.RemoveNames import RemoveNames
 
 from helpers.prefix_tree import Trie
 
-test_tree = Trie()
-test_tree.add_dict("./dictionaries/five_letter_words_culled.txt")
+from helpers.positional_hints import hints
 
-print(test_tree.exists("quota"))
+print(10^7)
 
-print(test_tree)
+
