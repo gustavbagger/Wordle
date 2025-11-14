@@ -70,9 +70,10 @@ def wordle():
         print(f"Unused  - {" ".join(unused_letters)}")
         print(f"Correct - {" ".join(correct_letters)}\n")
         print("Gamestate:\n")
-        for guess in guesses:
-            print(f"{" ".join(list(guess[0]))}")
-            print(f"{" ".join(map(str,guess[1]))}")  
+        for i in range(len(guesses)):
+            guess = guesses[i]
+            print(f"({i+1}) {" ".join(list(guess[0]))}")
+            print(f"    {" ".join(map(str,guess[1]))}")  
         print("----------------------------------------------------------------------")
         guess_word = input("what word would you like to try?\n")
 
@@ -111,4 +112,6 @@ def wordle():
         else:
             print(f"If you want to challange someone or try again, use key: {key}")
         print("======================================================================")
+
+
 wordle()
