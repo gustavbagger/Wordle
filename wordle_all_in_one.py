@@ -3,7 +3,14 @@ import os
 import random
 import math
 import json
-#test with ./dictionaries/five_letter_words.txt
+
+'''
+1) run this file
+2) start the game with 'wordle()'
+3) use this filepath when prompted:
+./five_letter_words_culled.txt
+4) type in the game key when prompted
+'''
 
 def RemoveNames(filepath: str):
     file = open(filepath,"r")
